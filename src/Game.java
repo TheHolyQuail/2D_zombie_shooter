@@ -41,9 +41,34 @@ public class Game extends JPanel{
         }
         for(int i = 0; i < zombies.length;i++){
             if(zombies[i] != null) {
-                zombies[i].move(ourplayer.x, ourplayer.y);
+                int x;// = (zombies[i].x - ourplayer.x / 8);
+                int y;// = (zombies[i].y - ourplayer.y / 9);
+
+                if(zombies[i].x - ourplayer.x > 0){
+                    x = -1;
+                }else if(zombies[i].x - ourplayer.x < 0){
+                    x = 1;
+                }else{
+                    x = 0;
+                }
+
+                if(zombies[i].y - ourplayer.y > 0){
+                    y = -1;
+                }else if(zombies[i].y - ourplayer.y < 0){
+                    y = 1;
+                }else{
+                    y = 0;
+                }
+
+
+
+                zombies[i].move(x, y);
             }
         }
+
+        //if()
+        //
+        //
     }
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;

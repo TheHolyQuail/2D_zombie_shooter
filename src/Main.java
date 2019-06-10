@@ -9,8 +9,11 @@ public class Main {
         Player player = new Player();
         Game game = new Game(player);
 
-        long time = 0;
         long lastTime = 0;
+        long startTime = System.currentTimeMillis();
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        long elapsedSeconds = elapsedTime / 1000;
+        long time = elapsedSeconds % 60;
 
         boolean alive = true;
 
@@ -22,7 +25,9 @@ public class Main {
 
 
         while (alive = true) {
-            time = System.nanoTime() / 1000000000;
+            elapsedTime = System.currentTimeMillis() - startTime;
+            elapsedSeconds = elapsedTime / 1000;
+            time = elapsedSeconds % 60;
             game.move();
             game.repaint();
             Thread.sleep(10);
