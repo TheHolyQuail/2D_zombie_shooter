@@ -60,7 +60,15 @@ public class Game extends JPanel{
                     y = 0;
                 }
 
-
+                //collision sensing
+                boolean yTrue = false;
+                boolean xTrue = false;
+                if(zombies[i].y - ourplayer.y > - 50 || zombies[i].y - ourplayer.y < 5){
+                    yTrue = true;
+                }
+                if(zombies[i].x - ourplayer.x > - 50 || zombies[i].x - ourplayer.x < 5){
+                    xTrue = true;
+                }
 
                 zombies[i].move(x, y);
             }
