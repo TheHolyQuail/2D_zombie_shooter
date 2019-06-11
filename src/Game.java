@@ -35,16 +35,19 @@ public class Game extends JPanel{
                 if(!ourplayer.bullets[i].stillIn()) {
                     ourplayer.bullets[i].move();
                     for(int ii = 0; ii < zombies.length;ii++){
+                        if (zombies[ii] == null) {
+                            continue;
+                        }
                         boolean yTrue = false;
                         boolean xTrue = false;
-                        if(zombies[i].y - ourplayer.bullets[i].y > - 30 && zombies[i].y - ourplayer.bullets[i].y < 3){
+                        if(zombies[ii].y - ourplayer.bullets[i].y > - 30 && zombies[ii].y - ourplayer.bullets[i].y < 3){
                             yTrue = true;
                         }
-                        if(zombies[i].x - ourplayer.bullets[i].x > - 30 && zombies[i].x - ourplayer.bullets[i].x < 3){
+                        if(zombies[ii].x - ourplayer.bullets[i].x > - 30 && zombies[ii].x - ourplayer.bullets[i].x < 3){
                             xTrue = true;
                         }
                         if(yTrue && xTrue) {
-                            zombies[i] = zombies[zombieCount - 1];
+                            zombies[ii] = zombies[zombieCount - 1];
                             zombies[zombieCount - 1] = null;
                             zombieCount--;
                         }
@@ -80,10 +83,10 @@ public class Game extends JPanel{
                 //collision sensing
                 boolean yTrue = false;
                 boolean xTrue = false;
-                if(zombies[i].y - ourplayer.y > - 50 && zombies[i].y - ourplayer.y < 5){
+                if(zombies[i].y - ourplayer.y > - 50 && zombies[i].y - ourplayer.y < 0){
                     yTrue = true;
                 }
-                if(zombies[i].x - ourplayer.x > - 50 && zombies[i].x - ourplayer.x < 5){
+                if(zombies[i].x - ourplayer.x > - 50 && zombies[i].x - ourplayer.x < 0){
                     xTrue = true;
                 }
                 if(yTrue && xTrue){

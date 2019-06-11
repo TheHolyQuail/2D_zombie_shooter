@@ -20,8 +20,18 @@ public class Player {
     }
 
     public void move() {
-        x = x + xa;
-        y = y + ya;
+        if(x > 0 && xa < 0) {
+            x = x + xa;
+        }
+        if(x < 950 && xa > 0) {
+            x = x + xa;
+        }
+        if(y > 0 && ya < 0) {
+            y = y + ya;
+        }
+        if(y < 950 && ya > 0) {
+            y = y + ya;
+        }
     }
 
     public void paint(Graphics2D g) {
