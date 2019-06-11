@@ -4,8 +4,10 @@ import javax.swing.*;
 
 public class Game extends JPanel{
     public static Player ourplayer;
-    public Zombie[] zombies = new Zombie[100];
+    public Zombie[] zombies = new Zombie[50];
     public int zombieCount = 0;
+
+    public boolean pAlive = true;
 
     public Game(Player player) {
         ourplayer = player;
@@ -32,6 +34,21 @@ public class Game extends JPanel{
             if(ourplayer.bullets[i] != null){
                 if(!ourplayer.bullets[i].stillIn()) {
                     ourplayer.bullets[i].move();
+                    for(int ii = 0; ii < zombies.length;ii++){
+                        boolean yTrue = false;
+                        boolean xTrue = false;
+                        if(zombies[i].y - ourplayer.bullets[i].y > - 30 && zombies[i].y - ourplayer.bullets[i].y < 3){
+                            yTrue = true;
+                        }
+                        if(zombies[i].x - ourplayer.bullets[i].x > - 30 && zombies[i].x - ourplayer.bullets[i].x < 3){
+                            xTrue = true;
+                        }
+                        if(yTrue && xTrue) {
+                            zombies[i] = zombies[zombieCount - 1];
+                            zombies[zombieCount - 1] = null;
+                            zombieCount--;
+                        }
+                    }
                 } else{
                     ourplayer.bullets[i] = ourplayer.bullets[ourplayer.bulletCount - 1];
                     ourplayer.bullets[ourplayer.bulletCount - 1] = null;
@@ -63,20 +80,21 @@ public class Game extends JPanel{
                 //collision sensing
                 boolean yTrue = false;
                 boolean xTrue = false;
-                if(zombies[i].y - ourplayer.y > - 50 || zombies[i].y - ourplayer.y < 5){
+                if(zombies[i].y - ourplayer.y > - 50 && zombies[i].y - ourplayer.y < 5){
                     yTrue = true;
                 }
-                if(zombies[i].x - ourplayer.x > - 50 || zombies[i].x - ourplayer.x < 5){
+                if(zombies[i].x - ourplayer.x > - 50 && zombies[i].x - ourplayer.x < 5){
                     xTrue = true;
+                }
+                if(yTrue && xTrue){
+                    pAlive = false;
                 }
 
                 zombies[i].move(x, y);
             }
         }
 
-        //if()
-        //
-        //
+
     }
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;

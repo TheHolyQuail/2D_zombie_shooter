@@ -24,7 +24,7 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        while (alive = true) {
+        while (alive == true) {
             elapsedTime = System.currentTimeMillis() - startTime;
             elapsedSeconds = elapsedTime / 1000;
             time = elapsedSeconds % 60;
@@ -50,9 +50,12 @@ public class Main {
                     x = 1000;
                     y = randomB;
                 }
-                    Zombie zombie = new Zombie(x, y);
+                Zombie zombie = new Zombie(x, y);
                 game.zombies[game.zombieCount] = zombie;
                 game.zombieCount++;
+            }
+            if(!game.pAlive){
+                alive = false;
             }
         }
     }
