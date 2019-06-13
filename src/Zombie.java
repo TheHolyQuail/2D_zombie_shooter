@@ -17,6 +17,7 @@ public class Zombie {
     }
 
     public void paint(Graphics2D g) {
+        g.setColor(Color.red);
         g.fillRect(x, y, width,height);
     }
 

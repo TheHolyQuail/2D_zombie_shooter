@@ -17,9 +17,10 @@ public class Main {
 
         boolean alive = true;
 
-        JFrame frame = new JFrame("Our Game");
+        JFrame frame = new JFrame("Zombie run");
         frame.add(game);
         frame.setSize(1000, 1000);
+        //frame.setBackground(Color.darkGray);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

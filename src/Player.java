@@ -1,6 +1,5 @@
+import java.awt.*;
 import java.awt.event.*;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 public class Player {
     int x = 250;
@@ -35,6 +34,7 @@ public class Player {
     }
 
     public void paint(Graphics2D g) {
+        g.setColor(Color.black);
         g.fillRect(x, y, width,height);
     }
 
