@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-
+import javax.swing.JOptionPane;
 
 public class Main {
 
@@ -31,7 +31,7 @@ public class Main {
             game.move();
             game.repaint();
             Thread.sleep(10);
-            if(time > lastTime + 10){
+            if(time > lastTime + 4){
                 lastTime = time;
                 int x;
                 int y;
@@ -56,6 +56,7 @@ public class Main {
             }
             if(!game.pAlive){
                 alive = false;
+                JOptionPane.showMessageDialog(null, "YOU DIED","Message", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
