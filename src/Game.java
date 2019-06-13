@@ -47,9 +47,14 @@ public class Game extends JPanel{
                             xTrue = true;
                         }
                         if(yTrue && xTrue) {
+                            //kill zombie
                             zombies[ii] = zombies[zombieCount - 1];
                             zombies[zombieCount - 1] = null;
                             zombieCount--;
+                            //destroy bullet
+                            ourplayer.bullets[i] = ourplayer.bullets[ourplayer.bulletCount - 1];
+                            ourplayer.bullets[ourplayer.bulletCount - 1] = null;
+                            ourplayer.bulletCount--;
                         }
                     }
                 } else{
